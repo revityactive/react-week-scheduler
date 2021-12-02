@@ -1,6 +1,4 @@
-import clamp from 'lodash/clamp';
-import floor from 'lodash/floor';
-import round from 'lodash/round';
+import { clamp, floor, round } from 'lodash';
 import { CellInfo, Grid, Rect } from '../types';
 import { getSpan } from './getSpan';
 

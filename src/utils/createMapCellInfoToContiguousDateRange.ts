@@ -1,4 +1,4 @@
-import isBefore from 'date-fns/isBefore';
+import { isBefore } from 'date-fns';
 import { MapCellInfoToDateRange } from '../types';
 import { cellToDate } from './cellToDate';
 

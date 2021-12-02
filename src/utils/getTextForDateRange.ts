@@ -1,7 +1,4 @@
-import { Locale } from 'date-fns';
-import format from 'date-fns/format';
-import getMinutes from 'date-fns/getMinutes';
-import isSameDay from 'date-fns/isSameDay';
+import { format, getMinutes, isSameDay, Locale } from 'date-fns';
 
 const formatTemplate = 'ddd h:mma';
 

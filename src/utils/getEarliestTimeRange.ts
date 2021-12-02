@@ -1,5 +1,4 @@
-import compareAsc from 'date-fns/compareAsc';
-import setDay from 'date-fns/setDay';
+import { compareAsc, setDay } from 'date-fns';
 import { DateRange } from '../types';
 
 export function getEarliestTimeRange(
