@@ -1,5 +1,5 @@
-import addDays from 'date-fns/add_days';
-import addMinutes from 'date-fns/add_minutes';
+import addDays from 'date-fns/addDays';
+import addMinutes from 'date-fns/addMinutes';
 
 export const cellToDate = ({
   startX,

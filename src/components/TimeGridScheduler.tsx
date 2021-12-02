@@ -1,10 +1,9 @@
 import useComponentSize from '@rehooks/component-size';
 import classcat from 'classcat';
-import addDays from 'date-fns/add_days';
-import addHours from 'date-fns/add_hours';
+import { addDays, addHours } from 'date-fns';
 import format from 'date-fns/format';
-import isDateEqual from 'date-fns/is_equal';
-import startOfDay from 'date-fns/start_of_day';
+import isDateEqual from 'date-fns/isEqual';
+import startOfDay from 'date-fns/startOfDay';
 import invariant from 'invariant';
 import isEqual from 'lodash/isEqual';
 import times from 'lodash/times';

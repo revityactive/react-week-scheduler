@@ -1,6 +1,7 @@
+import { Locale } from 'date-fns';
 import format from 'date-fns/format';
-import getMinutes from 'date-fns/get_minutes';
-import isSameDay from 'date-fns/is_same_day';
+import getMinutes from 'date-fns/getMinutes';
+import isSameDay from 'date-fns/isSameDay';
 
 const formatTemplate = 'ddd h:mma';
 
@@ -8,7 +9,7 @@ const dropSame = (
   dates: [Date, Date],
   template: string,
   takeSecond: boolean = false,
-  locale: typeof import('date-fns/locale/en'),
+  locale: Locale,
 ): [string, string] => {
   const [first, second] = dates.map(date => format(date, template, { locale }));
   if (first !== second) {
@@ -22,10 +23,7 @@ const dropSame = (
   return [first, ''];
 };
 
-const formatHour = (
-  date: Date,
-  locale: typeof import('date-fns/locale/en'),
-) => {
+const formatHour = (date: Date, locale: Locale) => {
   if (getMinutes(date) === 0) {
     return format(date, 'h', { locale });
   }
@@ -35,7 +33,7 @@ const formatHour = (
 
 type Options = {
   dateRange: [Date, Date];
-  locale: typeof import('date-fns/locale/en');
+  locale: Locale;
   template?: string;
   template2?: string;
   includeDayIfSame?: boolean;
@@ -55,10 +53,8 @@ export const getFormattedComponentsForDateRange = ({
     const [firstM, secondM] = dropSame(dateRange, 'a', true, locale);
     const day = includeDayIfSame ? `${format(start, 'ddd', { locale })} ` : '';
     return [
-      `${day}${formatHour(start, {
-        locale,
-      })}${firstM}`,
-      `${formatHour(end, { locale })}${secondM}`,
+      `${day}${formatHour(start, locale)}${firstM}`,
+      `${formatHour(end, locale)}${secondM}`,
     ];
   }
 

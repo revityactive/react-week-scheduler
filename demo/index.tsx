@@ -1,18 +1,18 @@
 import Tippy from '@tippy.js/react';
 import classcat from 'classcat';
-import compareAsc from 'date-fns/compare_asc';
+import compareAsc from 'date-fns/compareAsc';
 import format from 'date-fns/format';
-import getDay from 'date-fns/get_day';
-import getHours from 'date-fns/get_hours';
-import getMinutes from 'date-fns/get_minutes';
+import getDay from 'date-fns/getDay';
+import getHours from 'date-fns/getHours';
+import getMinutes from 'date-fns/getMinutes';
 import ar from 'date-fns/locale/ar';
 import de from 'date-fns/locale/de';
-import en from 'date-fns/locale/en';
+import en from 'date-fns/locale/en-GB';
 import ja from 'date-fns/locale/ja';
-import setDay from 'date-fns/set_day';
-import setHours from 'date-fns/set_hours';
-import setMinutes from 'date-fns/set_minutes';
-import startOfWeek from 'date-fns/start_of_week';
+import setDay from 'date-fns/setDay';
+import setHours from 'date-fns/setHours';
+import setMinutes from 'date-fns/setMinutes';
+import startOfWeek from 'date-fns/startOfWeek';
 // @ts-ignore
 import humanizeDuration from 'humanize-duration';
 import mapValues from 'lodash/mapValues';
@@ -59,6 +59,8 @@ const defaultSchedule: ScheduleType = rangeStrings.map(
   range => range.map(dateString => new Date(dateString)) as [Date, Date],
 );
 
+type DayOfWeek = 0 | 1 | 2 | 3 | 4 | 5 | 6;
+
 const EventRoot = React.forwardRef<any, EventRootProps>(function EventRoot(
   { handleDelete, disabled, ...props },
   ref,
@@ -88,7 +90,7 @@ const EventRoot = React.forwardRef<any, EventRootProps>(function EventRoot(
 });
 
 function App() {
-  const [weekStart, setWeekStart] = useState(1);
+  const [weekStart, setWeekStart] = useState<DayOfWeek>(1);
   const originDate = useMemo(
     () =>
       startOfWeek(new Date('2019-03-04'), {
@@ -229,7 +231,9 @@ function App() {
             name="start_of_week"
             id="start_of_week"
             value={weekStart}
-            onChange={({ target: { value } }) => setWeekStart(Number(value))}
+            onChange={({ target: { value } }) =>
+              setWeekStart(Number(value) as DayOfWeek)
+            }
           >
             {[0, 1, 2, 3, 4, 5, 6].map(value => (
               <option key={value} value={value}>
