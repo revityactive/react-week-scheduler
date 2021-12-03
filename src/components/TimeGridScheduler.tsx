@@ -9,6 +9,7 @@ import {
 } from 'date-fns';
 import invariant from 'invariant';
 import { isEqual, times } from 'lodash';
+import { ExtendedKeyboardEvent } from 'mousetrap';
 import React, {
   useCallback,
   useContext,

@@ -112,7 +112,7 @@ export function useClickAndDrag(
                 right,
                 width: right - left,
                 height: bottom - top,
-              };
+              } as any;
             },
           ),
           takeUntil(dragEnd$),

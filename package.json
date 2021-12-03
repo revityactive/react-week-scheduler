@@ -21,7 +21,7 @@
   "module": "index.mjs",
   "types": "./src/index.d.ts",
   "dependencies": {
-    "@reach/visually-hidden": "^0.1.2",
+    "@reach/visually-hidden": "^0.16.0",
     "@rehooks/component-size": "^1.0.2",
     "classcat": "^3.2.5",
     "date-fns": "^2.0.0",

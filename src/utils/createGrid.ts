@@ -46,7 +46,7 @@ export const createGrid = ({
         endX: endX * this.cellWidth,
         startY: startY * this.cellHeight,
         endY: endY * this.cellHeight,
-      };
+      } as any;
     },
 
     getCellFromRect(data: Rect) {
