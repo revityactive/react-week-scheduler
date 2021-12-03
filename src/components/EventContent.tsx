@@ -1,4 +1,3 @@
-// @ts-ignore
 import VisuallyHidden from '@reach/visually-hidden';
 import React, { useContext } from 'react';
 import { SchedulerContext } from '../context';

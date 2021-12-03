@@ -54,7 +54,8 @@
     "css-modules/no-undef-class": ["warn", { "camelCase": true }],
     "@typescript-eslint/explicit-function-return-type": ["off"],
     "@typescript-eslint/prefer-interface": ["off"],
-    "jsx-a11y/label-has-for": ["off"]
+    "jsx-a11y/label-has-for": ["off"],
+    "react/display-name": ["off"]
   },
   "settings": {
     "react": {

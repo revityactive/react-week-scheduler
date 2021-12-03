@@ -1,11 +1,18 @@
-import { format, getMinutes, isSameDay, Locale } from 'date-fns';
+import {
+  format,
+  getMinutes,
+  isEqual,
+  isSameDay,
+  Locale,
+  startOfDay,
+} from 'date-fns';
 
 const formatTemplate = 'ddd h:mma';
 
 const dropSame = (
   dates: [Date, Date],
   template: string,
-  takeSecond: boolean = false,
+  takeSecond = false,
   locale: Locale,
 ): [string, string] => {
   const [first, second] = dates.map(date => format(date, template, { locale }));
@@ -46,7 +53,7 @@ export const getFormattedComponentsForDateRange = ({
   const start = dateRange[0];
   const end = dateRange[dateRange.length - 1];
 
-  if (isSameDay(start, end) && !template) {
+  if ((isSameDay(start, end) || isEqual(startOfDay(end), end)) && !template) {
     const [firstM, secondM] = dropSame(dateRange, 'a', true, locale);
     const day = includeDayIfSame ? `${format(start, 'ddd', { locale })} ` : '';
     return [

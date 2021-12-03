@@ -13,7 +13,6 @@ import setDay from 'date-fns/setDay';
 import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
 import startOfWeek from 'date-fns/startOfWeek';
-// @ts-ignore
 import humanizeDuration from 'humanize-duration';
 import mapValues from 'lodash/mapValues';
 import 'pepjs';
